@@ -1,12 +1,13 @@
 import "./App.css";
+import PokemonList from "./components/pokemonList/PokemonList";
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          test
-        </p>
+        <PokemonList>
+        </PokemonList>
       </header>
     </div>
   );
