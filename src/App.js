@@ -5,16 +5,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          test
         </p>
-        <a
-          className="App-link"
-          href="https://pokeapi.co/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Gotta Catch'Em All!!!!
-        </a>
       </header>
     </div>
   );
