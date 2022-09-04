@@ -1,15 +1,29 @@
 import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import NavBarComp from "./components/navbar/NavBarComp";
 import PokemonList from "./components/pokemonList/PokemonList";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <Router>
+      <NavBarComp></NavBarComp>
+      <div className="Container">
         <PokemonList>
         </PokemonList>
-      </header>
-    </div>
+        <Routes>
+          <Route path="/Pokedex"/>
+          <Route> 404 Not found! </Route>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
