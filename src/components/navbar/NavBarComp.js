@@ -1,11 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux/es/exports";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import navbar from "../navbar/navbar.css";
 
 export default function NavBarComp() {
+  const [term, setTerm] = useState("");
+  const dispatch = useDispatch();
+  const pokemons = useSelector((state) => state.allPokemon.pokemonList);
+  console.log(pokemons, "pokemons")
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setTerm("");
+    console.log(term, "term");
+    //pokemonLink(`/pokemon`)
+  }
+
+  const changeHandler = (e) => {
+    setTerm(e.target.value);
+  }
+
+  const onSearch = (searchPokemon) => {
+    setTerm(searchPokemon)
+  }
+
   return (
     <>
       <Navbar bg="dark" expand="lg" variant="dark">
@@ -20,13 +42,41 @@ export default function NavBarComp() {
             >
               <Nav.Link href="/Pokedex">Pokedex</Nav.Link>
             </Nav>
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={submitHandler}>
               <Form.Control
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
-              ></Form.Control>
+                value={term}
+                onChange={changeHandler}
+              >
+                
+              </Form.Control>
+              <div className='dropdown'>
+                  {
+                    pokemons
+                      .filter((item) => {
+                        const searchPokemon = term.toLocaleLowerCase();
+                        const name = item.name.toLocaleLowerCase();
+                        return (
+                          searchPokemon &&
+                          name.startsWith(searchPokemon) &&
+                          name !== searchPokemon
+                        );
+                      })
+                      .slice(0, 10)
+                      .map((pokemon, index) => (
+                        <div
+                          onClick={() => onSearch(pokemon.name)}
+                          className="dropdown-row"
+                          key={index}
+                        >
+                          {pokemon.name}
+                        </div>
+                      ))
+                  }
+                </div>
               <Button variant="outline-success" type="submit">
                 Search
               </Button>
@@ -34,6 +84,30 @@ export default function NavBarComp() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      {/* <div className='dropdown'>
+        {
+          pokemons
+          .filter((item) => {
+            const searchPokemon = term.toLocaleLowerCase();
+            const name = item.name.toLocaleLowerCase();
+            return(
+              searchPokemon &&
+              name.startsWith(searchPokemon) &&
+              name !== searchPokemon
+            );
+          })
+          .slice(0,10)
+          .map((pokemon, index) => (
+            <div 
+            onClick={() => onSearch(pokemon.name)}
+            className="dropdown-row"
+            key={index}
+            >
+              {pokemon.name}
+            </div>
+          ))
+        }
+      </div> */}
     </>
   )
 }
