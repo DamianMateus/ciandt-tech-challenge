@@ -1,0 +1,19 @@
+.dropdown {
+  z-index: 100;
+  border: none;
+  position: absolute!important;
+  margin-top: 2rem;
+  background-color: white;
+  text-align: left;
+}
+
+.dropdown:empty {
+  border: none;
+}
+
+.dropdown-row {
+  cursor: pointer;
+  text-align: left;
+  border: none;
+  width: 12.91rem;
+}
