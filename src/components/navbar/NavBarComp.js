@@ -12,11 +12,9 @@ export default function NavBarComp() {
   const [term, setTerm] = useState("");
   const dispatch = useDispatch();
   const pokemons = useSelector((state) => state.allPokemon.pokemonList);
-  console.log(pokemons, "pokemons")
   const submitHandler = (e) => {
     e.preventDefault();
     setTerm("");
-    console.log(term, "term");
     //pokemonLink(`/pokemon`)
   }
 

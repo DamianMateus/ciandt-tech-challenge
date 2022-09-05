@@ -8,6 +8,7 @@ import {
 import NavBarComp from "./components/navbar/NavBarComp";
 import PokemonList from "./components/pokemonList/PokemonList";
 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -16,10 +17,9 @@ function App() {
     <Router>
       <NavBarComp></NavBarComp>
       <div className="Container">
-        <PokemonList>
-        </PokemonList>
         <Routes>
-          <Route path="/Pokedex"/>
+          <Route path="/" />
+          <Route path="/Pokedex" element={<PokemonList />} />
           <Route> 404 Not found! </Route>
         </Routes>
       </div>
