@@ -2,25 +2,14 @@ import { ActionTypes } from "../constants/action-types";
 
 const initialState = {
   pokemonList: [],
-}
-
-const initialStateDetail = {
-  pokemonDetailList: []
+  isLoading: false,
+  error: null,
 }
 
 export const pokemonListReducer = (state = initialState, {type, payload}) => {
   switch (type){
     case ActionTypes.FETCH_POKEMONLIST:
-      return { ...state, pokemonList: payload };
-    default:
-      return state;
-  }
-}
-
-export const pokemonDetailReducer = (state = initialStateDetail, {type,payload}) => {
-  switch (type){
-    case ActionTypes.FETCH_POKEMONDETAILS:
-      return { ...state, pokemonDetailList: payload };
+      return { ...state,isLoading: true, pokemonList: payload };
     default:
       return state;
   }
