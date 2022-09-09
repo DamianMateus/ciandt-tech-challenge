@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import pokemonApi from '../../apis/pokemonApi';
 import axios from 'axios';
+import { fetchPokemonDetailList } from '../../redux/actions/pokemonListAction';
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,25 +12,8 @@ import PokemonTypes from './PokemonTypes';
 import pokemonCardStyle from "./pokemonCard.css"
 
 export default function PokemonCard(props) {
-  const [state, setState] = useState([]);
 
-  const loadData = () => {
-    setState([])
-    pokemonApi.get("/pokemon/?limit=120")
-      .then(resp => {
-        for (let index = 0; index < resp.data.results.length; index++) {
-          axios.get(resp.data.results[index].url)
-            .then(result => {
-              setState(prevArray => [...prevArray, result.data])
-            })
-        }
-      })
-  }
-
-  useEffect(
-    loadData
-    , []);
-  const RenderList = state.map((value, index) => {
+  const RenderList = props.pokemons.map((value, index) => {
     return (
       <Col key={index}>
         <Card>
@@ -37,7 +21,7 @@ export default function PokemonCard(props) {
           <Card.Body>
             <Card.Title className='pokemonTitle'>{value.name}</Card.Title>
             <Card.Subtitle className='subtitle'> id: {value.id}</Card.Subtitle>
-            <PokemonTypes types={state[index].types}/>
+            <PokemonTypes types={value.types} />
           </Card.Body>
         </Card>
       </Col>

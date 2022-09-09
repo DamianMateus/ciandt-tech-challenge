@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 export default function PokemonTypes(props) {
   
   const [types, setTypes] = useState([
-    { type: 'grass', color: 'greenyellow' },
+    { type: 'grass', color: 'green' },
     { type: 'poison', color: 'purple' },
     { type: 'normal', color: 'brown' },
     { type: 'fire', color: 'darkorange' },
