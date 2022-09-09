@@ -12,11 +12,9 @@ export default function NavBarComp() {
   const [term, setTerm] = useState("");
   const dispatch = useDispatch();
   const pokemons = useSelector((state) => state.allPokemon.pokemonList);
-  console.log(pokemons, "pokemons")
   const submitHandler = (e) => {
     e.preventDefault();
     setTerm("");
-    console.log(term, "term");
     //pokemonLink(`/pokemon`)
   }
 
@@ -84,30 +82,6 @@ export default function NavBarComp() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {/* <div className='dropdown'>
-        {
-          pokemons
-          .filter((item) => {
-            const searchPokemon = term.toLocaleLowerCase();
-            const name = item.name.toLocaleLowerCase();
-            return(
-              searchPokemon &&
-              name.startsWith(searchPokemon) &&
-              name !== searchPokemon
-            );
-          })
-          .slice(0,10)
-          .map((pokemon, index) => (
-            <div 
-            onClick={() => onSearch(pokemon.name)}
-            className="dropdown-row"
-            key={index}
-            >
-              {pokemon.name}
-            </div>
-          ))
-        }
-      </div> */}
     </>
   )
 }

@@ -1,20 +1,13 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams } from 'react-router-dom';
-import { fetchPokemonList } from '../../redux/actions/pokemonListAction';
+import { useDispatch } from "react-redux";
+import PokemonCard from "./PokemonCard";
 
-export default function PokemonList() {
-  const pokemon = useSelector((state) => state.drinks);
-  const dispatch = useDispatch();
-  const { pokemonList } = useParams();
-
-  useEffect(() => {
-    dispatch(fetchPokemonList())
-  }, []);
-
+export default function PokemonList(props) {
+ //console.log(props.pokemons, 'pokemon list')
   return (
-    <div>
-      Pokemon list component
-    </div>
+    <>
+      <h1> Pokedex </h1>
+      <PokemonCard pokemonList={props.pokemons}></PokemonCard>
+    </>
   )
 }

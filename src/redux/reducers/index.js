@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { pokemonListReducer } from "./pokemonListReducer";
+import { pokemonListReducer } from "./pokemonListReducer"
 
 const reducers = combineReducers({
   allPokemon: pokemonListReducer,
