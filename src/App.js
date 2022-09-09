@@ -7,26 +7,18 @@ import {
 import { useDispatch } from "react-redux";
 import React, { useEffect } from "react";
 import { useSelector, shallowEqual } from "react-redux";
-
+import {  fetchPokemonList } from "./redux/actions/pokemonListAction";
 import NavBarComp from "./components/navbar/NavBarComp";
 import PokemonList from "./components/pokemonList/PokemonList";
-import {  fetchPokemonList } from "./redux/actions/pokemonListAction";
-
-
-
+import PokemonDetail from "./components/PokemonDetails/PokemonDetail";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function App() {
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPokemonList())
   }, [])
-
   const pokemons = useSelector((state) => state.allPokemon.pokemonList);
-
-  //console.log(pokemons, 'pokemons appjs')
 
   return (
     <Router>
@@ -35,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/"/>
           <Route path="/Pokedex" element={<PokemonList> </PokemonList>} />
+          <Route path="/Pokemon/:pokemon" element={<PokemonDetail> </PokemonDetail>} />
           <Route> 404 Not found! </Route>
         </Routes>
       </div>
