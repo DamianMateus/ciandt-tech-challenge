@@ -6,15 +6,16 @@ import axios from 'axios';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import PokemonTypes from './PokemonTypes';
 
-
+import pokemonCardStyle from "./pokemonCard.css"
 
 export default function PokemonCard(props) {
   const [state, setState] = useState([]);
 
   const loadData = () => {
     setState([])
-    pokemonApi.get("/pokemon/?limit=20")
+    pokemonApi.get("/pokemon/?limit=120")
       .then(resp => {
         for (let index = 0; index < resp.data.results.length; index++) {
           axios.get(resp.data.results[index].url)
@@ -24,15 +25,19 @@ export default function PokemonCard(props) {
         }
       })
   }
-  useEffect(loadData, []);
 
+  useEffect(
+    loadData
+    , []);
   const RenderList = state.map((value, index) => {
     return (
       <Col key={index}>
-        <Card style={{ width: "10rem" }}>
-          <Card.Img variant="top" src={value.sprites.front_default} />
+        <Card>
+          <Card.Img variant="top" src={value.sprites.front_default} className="card-img" />
           <Card.Body>
-            <Card.Title>{value.name}</Card.Title>
+            <Card.Title className='pokemonTitle'>{value.name}</Card.Title>
+            <Card.Subtitle className='subtitle'> id: {value.id}</Card.Subtitle>
+            <PokemonTypes types={state[index].types}/>
           </Card.Body>
         </Card>
       </Col>
@@ -41,7 +46,7 @@ export default function PokemonCard(props) {
 
   return (
     <>
-      <Row xs={1} sm={1} md={3} lg={4} xl={6} xl={6} className="g-4">
+      <Row xs={1} sm={1} md={1} lg={1} xl={3} xl={3} className="container-pokedex">
         {RenderList}
       </Row>
     </>

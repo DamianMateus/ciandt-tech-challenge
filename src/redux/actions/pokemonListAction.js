@@ -11,7 +11,6 @@ export const fetchPokemonList = () => async (dispatch) => {
 
 function loadData() {
   const resultDetail = []
-
   pokemonApi.get("/pokemon/?limit=1200")
     .then(resp => {
       for (let index = 0; index < resp.data.results.length; index++) {

@@ -1,0 +1,31 @@
+.card {
+  cursor: pointer;
+  width: 20rem;
+  margin: 2rem;
+}
+
+.pokemonTypes {
+  width: fit-content;
+  padding: 0.2rem 1rem;
+  border-radius: 1rem;
+  display: inline-table;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  color: white;
+}
+
+img.card-img-top.card-img {
+  max-width: inherit;
+  background-color: rgba(138, 138, 138, 0.233);
+}
+
+@media screen and (min-width: 427px) {
+}
+
+
+@media screen and (max-width: 426px) {
+  .pokemon.col {
+    width: 80%;
+    margin: 1rem;
+  }
+}
