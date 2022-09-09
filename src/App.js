@@ -31,7 +31,7 @@ function App() {
   return (
     <Router>
       <NavBarComp></NavBarComp>
-      <div className="Container">
+      <div className="Container mt-5">
         <Routes>
           <Route path="/"/>
           <Route path="/Pokedex" element={<PokemonList> </PokemonList>} />

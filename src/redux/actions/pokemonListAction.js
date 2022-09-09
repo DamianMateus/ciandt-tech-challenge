@@ -6,7 +6,7 @@ const data = []
 
 export const fetchPokemonList = () => async (dispatch) => {
   const resultDetail = []
-  pokemonApi.get("/pokemon/?limit=120")
+  pokemonApi.get("/pokemon/?limit=151")
   .then(resp => {
     Promise.all(
       resp.data.results.map((value => {
