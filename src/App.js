@@ -34,7 +34,7 @@ function App() {
       <div className="Container">
         <Routes>
           <Route path="/"/>
-          <Route path="/Pokedex" element={<PokemonList pokemons={pokemons}> </PokemonList>} />
+          <Route path="/Pokedex" element={<PokemonList> </PokemonList>} />
           <Route> 404 Not found! </Route>
         </Routes>
       </div>
