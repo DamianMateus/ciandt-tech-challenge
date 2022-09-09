@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux/es/exports";
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -12,10 +13,12 @@ export default function NavBarComp() {
   const [term, setTerm] = useState("");
   const dispatch = useDispatch();
   const pokemons = useSelector((state) => state.allPokemon.pokemonList);
+  const pokemonLink = useNavigate();
+
   const submitHandler = (e) => {
     e.preventDefault();
     setTerm("");
-    //pokemonLink(`/pokemon`)
+    pokemonLink(`/pokemon/${term}`)
   }
 
   const changeHandler = (e) => {
@@ -49,32 +52,32 @@ export default function NavBarComp() {
                 value={term}
                 onChange={changeHandler}
               >
-                
+
               </Form.Control>
               <div className='dropdown'>
-                  {
-                    pokemons
-                      .filter((item) => {
-                        const searchPokemon = term.toLocaleLowerCase();
-                        const name = item.name.toLocaleLowerCase();
-                        return (
-                          searchPokemon &&
-                          name.startsWith(searchPokemon) &&
-                          name !== searchPokemon
-                        );
-                      })
-                      .slice(0, 10)
-                      .map((pokemon, index) => (
-                        <div
-                          onClick={() => onSearch(pokemon.name)}
-                          className="dropdown-row"
-                          key={index}
-                        >
-                          {pokemon.name}
-                        </div>
-                      ))
-                  }
-                </div>
+                {
+                  pokemons
+                    .filter((item) => {
+                      const searchPokemon = term.toLocaleLowerCase();
+                      const name = item.name.toLocaleLowerCase();
+                      return (
+                        searchPokemon &&
+                        name.startsWith(searchPokemon) &&
+                        name !== searchPokemon
+                      );
+                    })
+                    .slice(0, 10)
+                    .map((pokemon, index) => (
+                      <div
+                        onClick={() => onSearch(pokemon.name)}
+                        className="dropdown-row"
+                        key={index}
+                      >
+                        {pokemon.name}
+                      </div>
+                    ))
+                }
+              </div>
               <Button variant="outline-success" type="submit">
                 Search
               </Button>

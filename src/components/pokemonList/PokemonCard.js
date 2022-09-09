@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import pokemonApi from '../../apis/pokemonApi';
 import axios from 'axios';
 import { fetchPokemonDetailList } from '../../redux/actions/pokemonListAction';
-
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
@@ -12,7 +11,6 @@ import PokemonTypes from './PokemonTypes';
 import pokemonCardStyle from "./pokemonCard.css"
 
 export default function PokemonCard(props) {
-
   const RenderList = props.pokemons.map((value, index) => {
     return (
       <Col key={index}>
