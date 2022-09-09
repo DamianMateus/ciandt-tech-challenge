@@ -1,3 +1,21 @@
+# CI&T Tech Challenge Wilmer Mateus
+-This application run under Redux store feature.
+-on the navbar you can search by name from the list of pokemons, select and click search i will show
+the stats and details of the pokemon choose.
+-on pokedex menu you can see all the pokemons and follow throw pages.
+-you can mark favorites pokemons.
+-the page is responsive for desktop and mobile
+
+## Available Scripts
+In the project directory, you can run:
+
+### `npm start`
+### `npm test`
+
+
+
+
+
 # CI&T Tech Challenge
 
 Hello, we're excited that you've made this far, we are providing you a boilerplate for the technical challenge.
