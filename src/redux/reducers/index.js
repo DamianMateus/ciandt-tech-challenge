@@ -1,9 +1,7 @@
 import { combineReducers } from "redux";
-import { pokemonListReducer } from "./pokemonListReducer"
-import { favoritesReducer } from "./favoritesReducer";
+import { pokemonListReducer, pokemonDetailListReducer } from "./pokemonListReducer"
 
 const reducers = combineReducers({
-  favourites: favoritesReducer,
   allPokemon: pokemonListReducer
 })
 

@@ -17,7 +17,3 @@ export const fetchPokemonList = () => async (dispatch) => {
     })
   dispatch({ type: ActionTypes.FETCH_POKEMONLIST, payload: resultDetail })
 }
-
-export const addToFavorites = payload => {
-  return { type: 'ADD_TO_FAVORITES', payload}
-}

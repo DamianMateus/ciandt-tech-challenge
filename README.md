@@ -12,6 +12,7 @@ In the project directory, you can run:
 ### `npm start`
 ### `npm test`
 
+
 # CI&T Tech Challenge
 
 Hello, we're excited that you've made this far, we are providing you a boilerplate for the technical challenge.

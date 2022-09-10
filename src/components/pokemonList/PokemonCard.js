@@ -6,9 +6,7 @@ import { fetchPokemonDetailList } from '../../redux/actions/pokemonListAction';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import PokemonTypes from './PokemonTypes';
-import Icon from '../icon/Icon';
 
 import pokemonCardStyle from "./pokemonCard.css"
 
@@ -17,7 +15,6 @@ export default function PokemonCard(props) {
     return (
       <Col key={index}>
         <Card>
-          <Icon name="icon-heart1" />
           <Card.Img variant="top" src={value.sprites.front_default} className="card-img" />
           <Card.Body>
             <Card.Title className='pokemonTitle'>{value.name}</Card.Title>
