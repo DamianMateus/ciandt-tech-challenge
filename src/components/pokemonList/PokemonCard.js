@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import pokemonApi from '../../apis/pokemonApi';
 import axios from 'axios';
 import { fetchPokemonDetailList } from '../../redux/actions/pokemonListAction';
@@ -11,10 +12,12 @@ import PokemonTypes from './PokemonTypes';
 import pokemonCardStyle from "./pokemonCard.css"
 
 export default function PokemonCard(props) {
+  const pokemonLink = useNavigate();
+  
   const RenderList = props.pokemons.map((value, index) => {
     return (
       <Col key={index}>
-        <Card>
+        <Card onClick={() => pokemonLink(`/pokemon/${value.name}`)}>
           <Card.Img variant="top" src={value.sprites.front_default} className="card-img" />
           <Card.Body>
             <Card.Title className='pokemonTitle'>{value.name}</Card.Title>

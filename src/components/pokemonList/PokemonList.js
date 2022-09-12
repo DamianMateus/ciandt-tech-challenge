@@ -13,6 +13,7 @@ export default function PokemonList() {
   const [loading, setLoading] = useState(false);  
   const [currentPage, setCurrentPage] = useState(1);
   const [pokemonPerPage] = useState(9);
+
   const loadData2 = () => {
     setState([])
     pokemonApi.get("/pokemon/?limit=10")
@@ -25,10 +26,13 @@ export default function PokemonList() {
         }
       })
   }
-  useEffect(loadData2, []);  
+  useEffect(loadData2, []);
+  //console.log(object)
+
   const indexOfLastPokemon = currentPage * pokemonPerPage;
   const indexOfFirtsPokemon = indexOfLastPokemon - pokemonPerPage;
   const currentPokemons = pokemons2.slice(indexOfFirtsPokemon, indexOfLastPokemon)
+  console.log(pokemons2, 'pokemons2')
 
   const paginate = pageNumber => setCurrentPage(pageNumber)
   return (
