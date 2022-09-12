@@ -27,7 +27,7 @@ export default function PokemonList() {
       })
   }
   useEffect(loadData2, []);
-  //console.log(object)
+  
 
   const indexOfLastPokemon = currentPage * pokemonPerPage;
   const indexOfFirtsPokemon = indexOfLastPokemon - pokemonPerPage;

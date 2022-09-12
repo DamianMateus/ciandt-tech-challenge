@@ -19,6 +19,25 @@ img.card-img-top.card-img {
   background-color: rgba(138, 138, 138, 0.233);
 }
 
+svg.icon.icon-\$name {
+  z-index: 20;
+  position: absolute;
+  max-width: 2rem;
+  margin-left: 85%;
+  margin-top: -14%;
+  cursor: pointer;
+  fill: lightblue;
+}
+
+/* svg.icon.icon-\$name {
+  position: absolute;
+  max-width: 2rem;
+  margin-left: 85%;
+  margin-top: -14%;
+  cursor: pointer;
+  fill: lightblue;
+} */
+
 @media screen and (min-width: 427px) {
 }
 
